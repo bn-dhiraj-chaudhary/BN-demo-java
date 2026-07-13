@@ -1,0 +1,14 @@
+capture:
+  build:
+    clean-command: 'mvn -B -f pom.xml clean'
+    build-command: 'mvn -B -f pom.xml install -DskipTests'
+analyze:
+  cov-analyze-args:
+    - '--webapp-security'
+    - '--security'
+    - '--enable'
+    - 'HARDCODED_CREDENTIALS'
+    - '--enable'
+    - 'SQLI'
+    - '--enable'
+    - 'OS_CMD_INJECTION'
