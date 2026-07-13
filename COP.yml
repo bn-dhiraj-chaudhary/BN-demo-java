@@ -2,8 +2,10 @@
 # Consumed by the Polaris/Coverity CLI (`polaris` or `cov-capture`) during the pipeline scan step.
 capture:
   build:
-    clean-command: "./mvnw -B clean"
-    build-command: "./mvnw -B install -DskipTests"
+    cleanCommands:
+      - shell: [mvn, -B, -f, pom.xml, clean]
+    buildCommands:
+      - shell: [mvn, -B, -f, pom.xml, install, -DskipTests]
   files:
     exclude-regex: (target|\.git)/.*
   languages:
